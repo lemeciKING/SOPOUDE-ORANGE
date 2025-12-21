@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paiement ORANGE MONEY – Soutien à SOPOUDÉ </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        :root {
+            --primary: #FF7900; /* 🔁 À changer selon mon réseau */
+            --dark: #2D3436;
+            --light: #F5F6FA;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .network-header {
+            background: var(--white);
+            text-align: center;
+            padding: 2rem 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .network-logo {
+            height: 80px;
+            margin-bottom: 1rem;
+            object-fit: contain;
+        }
+
+        .network-title {
+            color: var(--primary);
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        main {
+            flex: 1;
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .payment-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .payment-title {
+            color: var(--dark);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .number-container {
+            background: var(--light);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .number-label {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .number-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            font-family: monospace;
+            word-break: break-all;
+        }
+
+        .copy-btn {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .copy-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .ussd-section {
+            margin-top: 2rem;
+        }
+
+        .ussd-code {
+            background: var(--dark);
+            color: var(--white);
+            padding: 1rem;
+            border-radius: 10px;
+            font-family: monospace;
+            font-size: 1.2rem;
+            display: inline-block;
+            margin: 1rem 0;
+        }
+
+        .call-btn {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .call-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--dark);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: none;
+        }
+
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 1.8rem 1.5rem;
+            text-align: center;
+        }
+
+        .footer-info {
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            color: #aaa;
+        }
+
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-icons a {
+            color: white;
+            font-size: 1.6rem;
+            background: rgba(255,255,255,0.1);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .network-title { font-size: 1.5rem; }
+            .number-value { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="network-header">
+        <img src="https://files.catbox.moe/h2jpok.jpg" alt="TRESOR MONEY" class="network-logo">
+        <h1 class="network-title">Paiement par ORANGE MONEY</h1>
+    </header>
+
+    <!-- CONTENU -->
+    <main>
+        <div class="payment-card">
+            <h2 class="payment-title">Soutien à SOPOUDÉ GOMA YVES EMMANUEL</h2>
+
+            <div class="number-container">
+                <div class="number-label">Numéro: +225 07 06 20 06 87</div>
+                <div class="number-value" id="paymentNumber">+2250706200687</div>
+                <button class="copy-btn" onclick="copyToClipboard('paymentNumber', 'Numéro copié !')">
+                    <i class="far fa-copy"></i> Copier le numéro
+                </button>
+            </div>
+
+            <!-- 🔁 Afficher ce bloc seulement si le réseau a un USSD -->
+            <div class="ussd-section">
+                <p>Ou utilisez directement le code USSD :</p>
+                <div class="ussd-code">CODE USSD : #144*1*1*0706200687#</div>
+                <button class="call-btn" onclick="launchUSSD('#144*1*1*0706200687#')">
+                    <i class="fas fa-phone"></i> Composer le code USSD
+                </button>
+            </div>
+
+            <!-- Lien retour facultatif mais recommandé -->
+            <a href="index.html" style="display: inline-block; margin-top: 1.5rem; color: var(--primary); text-decoration: none; font-weight: 600;">
+                ← Retour à la sélection
+            </a>
+        </div>
+    </main>
+
+    <div class="toast" id="toast"></div>
+
+    <!-- FOOTER (SEULEMENT TÉLÉPHONE, WHATSAPP, EMAIL) -->
+    <footer>
+        <div class="footer-info">POUR PLUS D'INFOS</div>
+        <div class="footer-icons">
+            <a href="tel: +2250500369100" aria-label="Appeler"><i class="fas fa-phone"></i></a>
+            <a href="https://wa.me/+2250500369100" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:lemecioff@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+        <div class="copyright">
+            &copy; 2025 – Collecte solidaire pour SOPOUDÉ GOMA YVES EMMANUEL
+        </div>
+    </footer>
+
+    <script>
+        function copyToClipboard(id, msg) {
+            const text = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                showToast(msg);
+            }).catch(() => {
+                showToast("Erreur de copie");
+            });
+        }
+
+        function showToast(message) {
+            const t = document.getElementById('toast');
+            t.textContent = message;
+            t.style.display = 'block';
+            setTimeout(() => t.style.display = 'none', 3000);
+        }
+
+        function launchUSSD(code) {
+            const clean = code.replace(/#/g, '%23').replace(/\*/g, '%2A');
+            window.location.href = `tel:${clean}`;
+        }
+    </script>
+</body>
+</html>
